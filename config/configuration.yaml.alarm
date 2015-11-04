@@ -1,0 +1,63 @@
+homeassistant:
+  # Omitted values in this section will be auto detected using freegeoip.net
+
+  # Location required to calculate the time the sun rises and sets
+  latitude: 39.973468
+  longitude: 116.391473
+
+  # C for Celcius, F for Fahrenheit
+  temperature_unit: C
+
+  # Pick yours from here:
+  # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Asia/Shanghai
+
+  # Name of the location where Home Assistant is running
+  name: HOBO_Home
+
+http:
+  api_password: aaa123
+  # Set to 1 to enable development mode
+  development: 1
+
+light:
+  platform: hue
+
+
+device_tracker:
+  # The following types are available: ddwrt, netgear, tomato, luci,
+  # and nmap_tracker
+  platform: luci
+  host: 192.168.1.1
+  username: root
+  password: ICANSOIDO81115820121
+  # http_id is needed for Tomato routers only
+  # http_id: ABCDEFGHH
+  # For nmap_tracker, only the IP addresses to scan are needed:
+  # hosts: 192.168.1.1/24 # netmask prefix notation or
+  # hosts: 192.168.1.1-255 # address range
+
+zwave:
+   usb_path: /dev/ttyUSB0
+
+notify:
+  platform: pushbullet
+  api_key: ABCDEFGHJKLMNOPQRSTUVXYZ
+
+
+automation:
+  platform: state
+  alias: WC shining
+
+  state_entity_id: zwave.sensor
+  # Next two are optional, omit to match all
+  state_from: STATE_OFF
+  state_to: STATE_ON
+
+  execute_service: light.turn_on
+  service_entity_id: hue
+
+
+
+
+
