@@ -49,10 +49,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     # if 1 in groups and (zwave.NETWORK.controller.node_id not in
     #                     groups[1].associations):
     #     node.groups[1].add_association(zwave.NETWORK.controller.node_id)
-<<<<<<< HEAD
     print("ZWave sensor type value:", value.command_class)
-    if value.command_class == zwave.COMMAND_CLASS_SENSOR_BINARY:
-=======
 
     specific_sensor_key = (value.node.manufacturer_id,
                            value.node.product_id,
@@ -69,13 +66,13 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 
     # generic Device mappings
     elif value.command_class == zwave.COMMAND_CLASS_SENSOR_BINARY:
->>>>>>> balloob/dev
+
         add_devices([ZWaveBinarySensor(value)])
 
     elif value.command_class == zwave.COMMAND_CLASS_SENSOR_MULTILEVEL:
         add_devices([ZWaveMultilevelSensor(value)])
 
-<<<<<<< HEAD
+
     elif value.command_class ==  zwave.COMMAND_CLASS_SENSOR_ALARM:
         print("ZWave sensor type : alarm sensor")
         add_devices([ZWaveAlarmSensor(value)])        
@@ -83,12 +80,12 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     elif value.command_class == zwave.COMMAND_CLASS_SILENCE_ALARM:
         print("ZWave sensor type : slience alarm")
         add_devices([ZWaveAlarmSensor(value)])        
-=======
+
     elif (value.command_class == zwave.COMMAND_CLASS_METER and
           value.type == zwave.TYPE_DECIMAL):
         add_devices([ZWaveMultilevelSensor(value)])
 
->>>>>>> balloob/dev
+
 
 class ZWaveSensor(Entity):
     """ Represents a Z-Wave sensor. """

@@ -52,16 +52,14 @@ TYPE_DECIMAL = "Decimal"
 # list of tuple (DOMAIN, discovered service, supported command
 # classes, value type)
 DISCOVERY_COMPONENTS = [
-<<<<<<< HEAD
-    ('sensor', DISCOVER_SENSORS,
-     [COMMAND_CLASS_SENSOR_BINARY, COMMAND_CLASS_SENSOR_MULTILEVEL, COMMAND_CLASS_SILENCE_ALARM,
-     COMMAND_CLASS_SILENCE_ALARM]),
-=======
+
     ('sensor',
      DISCOVER_SENSORS,
      [COMMAND_CLASS_SENSOR_BINARY,
       COMMAND_CLASS_SENSOR_MULTILEVEL,
-      COMMAND_CLASS_METER],
+      COMMAND_CLASS_METER,
+      COMMAND_CLASS_SENSOR_ALARM,
+      COMMAND_CLASS_SILENCE_ALARM],
      TYPE_WHATEVER,
      GENRE_USER),
     ('light',
@@ -74,7 +72,7 @@ DISCOVERY_COMPONENTS = [
      [COMMAND_CLASS_SWITCH_BINARY],
      TYPE_BOOL,
      GENRE_USER),
->>>>>>> balloob/dev
+
 ]
 
 ATTR_NODE_ID = "node_id"
